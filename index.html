@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -18,8 +19,8 @@
                 class="d-inline-block align-top" alt="" loading="lazy">
             View High Scores
         </a>
-        <span class="navbar-text">
-            Time: 0
+        <span class="navbar-text" id="timeleft">
+            2:00
         </span>
     </nav>
 
@@ -32,17 +33,44 @@
                 <hr>
                 <footer>
                     <div class="col-md-12 text-center">
-                        <button type="button" class="btn btn-secondary btn-lg">Start Quiz</button>
+                        <button type="button" class="btn btn-secondary btn-lg" id="start">Start Quiz</button>
                     </div>
                 </footer>
             </blockquote>
         </div>
+    </div>
 
         <script>
 
-        $("#button").on("click", function() {
-            window.location.href='./index.html'
+        // ON CLICK DIRECT TO TEST TEMPLATE HTML
+
+        var timerEl = document.getElementById("timeleft");
+        var startBtn = document.getElementById("start");
+
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        startBtn.addEventListener("click", function() {
+            var twoMinutes = 60 * 2,
+                display = timerEl;
+            startTimer(twoMinutes, display);
+            timerEl.innerHTML = display;
         });
+
 
         </script>
 
