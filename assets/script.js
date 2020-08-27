@@ -90,3 +90,42 @@ function getFormattedSeconds() {
     }
 
     startBtn.addEventListener("click", startTimer);
+
+
+    // this code works
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer == 0) {
+                clearInterval();
+            }
+        }, 1000);
+    }
+
+    startBtn.addEventListener("click", function() {
+        var twoMinutes = 60 * 1;
+            display = timerEl;
+        startTimer(twoMinutes, display);
+        timerEl.innerHTML = display;
+        startcardEl.style.display = "none";
+        quizcardEl.style.display = "block";
+    });
+    
+    // this works for counting down
+    function prepareTimer() {
+        var timer = setInterval(function countDown() {
+            countFrom--;
+            console.log(countFrom);
+            if (countFrom === 0) {
+                clearInterval(timer);
+            }
+        }, 1000);
+        }

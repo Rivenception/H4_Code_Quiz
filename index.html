@@ -21,6 +21,7 @@
             View High Scores
         </a>
         <span class="navbar-text" id="timeleft">
+            Timer: 02:00
         </span>
     </nav>
 
@@ -29,7 +30,7 @@
     <div class="card col-md-6 offset-md-3" id="startcard">
         <div class="card-body">
             <blockquote class="blockquote mb-0 text-center">
-                <p>Quiz Topic: How to Write in Javascript</p>
+                <p>Pop Quiz Topic: How to Write in Javascript</p>
                 <hr>
                 <footer>
                     <div class="col-md-12 text-center">
@@ -40,26 +41,151 @@
         </div>
     </div>
     
-    <!--Quiz Card-->
-
+    <!--Quuestion 1-->
     <div class="card col-md-6 offset-md-3 hidden" id="quizcard">
         <div class="card-header">
             Question 1:
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <p>Inside which HTML element do we put the JavaScript?</p>
                 <div class="btn-group-vertical">
-                    <button type="button" class="btn btn-secondary" id="Q1">A</button>
+                    <button type="button" class="btn btn-secondary" id="A1">&lt;scripting&gt;</button>
                     <br>
-                    <button type="button" class="btn btn-secondary" id="Q2">B</button>
+                    <button type="button" class="btn btn-secondary" id="A2">&lt;script&gt;</button>
                     <br>
-                    <button type="button" class="btn btn-secondary" id="Q3">C</button>
+                    <button type="button" class="btn btn-secondary" id="A3">&lt;javascript&gt;</button>
                     <br>
-                    <button type="button" class="btn btn-secondary" id="Q4">D</button>
+                    <button type="button" class="btn btn-secondary" id="A4">&lt;js&gt;</button>
                 </div>
                 <hr>
-                <footer class="blockquote-footer">Correct!<cite title="Source Title">Source Title</cite>
+                <footer class="blockquote-footer"><span class="graded"></span>
+                    <button type="button" class="btn btn-secondary float-right" id="A5">Next Question</button>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <!--Question 2-->
+    <div class="card col-md-6 offset-md-3 hidden" id="quizcard2">
+        <div class="card-header">
+            Question 2:
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>How do you write "Hello World" in an alert box?</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-secondary" id="A6">alertBox("Hello World");</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A7">msg("Hello World");</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A8">msgBox("Hello World");</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A9">alert("Hello World");</button>
+                </div>
+                <hr>
+                <footer class="blockquote-footer"><span class="graded"></span>
+                    <button type="button" class="btn btn-secondary float-right" id="A10">Next Question</button>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <!--Question 3-->
+    <div class="card col-md-6 offset-md-3 hidden" id="quizcard3">
+        <div class="card-header">
+            Question 3:
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>How to write an IF statement in JavaScript?</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-secondary" id="A11">if (i == 5)</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A12">if i = 5</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A13">if i == 5 then</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A14">if i = 5 then</button>
+                </div>
+                <hr>
+                <footer class="blockquote-footer"><span class="graded"></span>
+                    <button type="button" class="btn btn-secondary float-right" id="A15">Next Question</button>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <!--Question 4-->
+    <div class="card col-md-6 offset-md-3 hidden" id="quizcard4">
+        <div class="card-header">
+            Question 4:
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Which event occurs when the user clicks on an HTML element?</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-secondary" id="A16">onlick</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A17">onchange</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A18">onmouseover</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A19">onmouseclick</button>
+                </div>
+                <hr>
+                <footer class="blockquote-footer"><span class="graded"></span>
+                    <button type="button" class="btn btn-secondary float-right" id="A20">Next Question</button>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <!--Question 5-->
+    <div class="card col-md-6 offset-md-3 hidden" id="quizcard5">
+        <div class="card-header">
+            Question 5:
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>How do you target an element id using DOM notation</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-secondary" id="A21">document.querySelector(.element)</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A22">document.querySelector(element)</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A23">document.getElementsByClassName(element)</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A24">document.querySelector(#element)</button>
+                </div>
+                <hr>
+                <footer class="blockquote-footer"><span class="graded"></span>
+                    <button type="button" class="btn btn-secondary float-right" id="A25">Next Question</button>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <!--Question 6-->
+    <div class="card col-md-6 offset-md-3 hidden" id="quizcard6">
+        <div class="card-header">
+            Question 5:
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>BONUS QUESTION: Who is the best instructor/TA in the cohort?</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-secondary" id="A26">Dan Kral</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A27">Ryan Caplette</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A28">Kali Pulkkinen</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" id="A29">Matt Torcellini</button>
+                </div>
+                <hr>
+                <footer class="blockquote-footer"><span class="graded"></span>
+                    <button type="button" class="btn btn-secondary float-right" id="A30">Finish Test</button>
                 </footer>
             </blockquote>
         </div>
@@ -68,38 +194,154 @@
 
         <script>
 
-        // ON CLICK DIRECT TO TEST TEMPLATE HTML
+        // closing thoughts.  Can we do a forEach loop for class and determine if the card in NOT hidden. Can you get an element by id of only non-hidden elements?
 
         var timerEl = document.getElementById("timeleft");
         var startBtn = document.getElementById("start");
-        var quizcardEl = document.getElementById("quizcard");
         var startcardEl = document.getElementById("startcard");
 
-        function startTimer(duration, display) {
-            var timer = duration, minutes, seconds;
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+        // QUIZ CARDS
+        var quizcardEl = document.getElementById("quizcard");
+        var qTwoEl = document.getElementById("quizcard2");
+        var qThreeEl = document.getElementById("quizcard3");
+        var qFourEl = document.getElementById("quizcard4");
+        var qFiveEl = document.getElementById("quizcard5");
+        var qBonusEl = document.getElementById("quizcard6");
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+        // NEXT QUIZ CARD BUTTONS
+        var q1nextBtnEl = document.getElementById("A5");
+        var q2nextBtnEl = document.getElementById("A10"); 
+        var q3nextBtnEl = document.getElementById("A15"); 
+        var q4nextBtnEl = document.getElementById("A20"); 
+        var q5nextBtnEl = document.getElementById("A25");
+        var q6nextBtnEl = document.getElementById("A30");
+        
+        // ANSWER BUTTONS
+        document.getElementById("A1").addEventListener("click", isWrong);
+        document.getElementById("A2").addEventListener("click", isCorrect);
+        document.getElementById("A3").addEventListener("click", isWrong);
+        document.getElementById("A4").addEventListener("click", isWrong);
+        document.getElementById("A6").addEventListener("click", isWrong);
+        document.getElementById("A7").addEventListener("click", isWrong);
+        document.getElementById("A8").addEventListener("click", isWrong);
+        document.getElementById("A9").addEventListener("click", isCorrect);
+        document.getElementById("A11").addEventListener("click", isCorrect);
+        document.getElementById("A12").addEventListener("click", isWrong);
+        document.getElementById("A13").addEventListener("click", isWrong);
+        document.getElementById("A14").addEventListener("click", isWrong);
+        document.getElementById("A16").addEventListener("click", isCorrect);
+        document.getElementById("A17").addEventListener("click", isWrong);
+        document.getElementById("A18").addEventListener("click", isWrong);
+        document.getElementById("A19").addEventListener("click", isWrong);
+        document.getElementById("A21").addEventListener("click", isWrong);
+        document.getElementById("A22").addEventListener("click", isWrong);
+        document.getElementById("A23").addEventListener("click", isWrong);
+        document.getElementById("A24").addEventListener("click", isCorrect);
+        document.getElementById("A26").addEventListener("click", isWrong);
+        document.getElementById("A27").addEventListener("click", isWrong);
+        document.getElementById("A28").addEventListener("click", isWrong);
+        document.getElementById("A29").addEventListener("click", isWrong);
+        
+        // CORRECT or INCORRECT VALIDATION
+        var ifCorrect = 0;
+        var ifWrong = 0;
+        var footer = document.getElementsByClassName("graded");
 
-                display.textContent = minutes + ":" + seconds;
-
-                if (--timer == 0) {
-                    timer = duration;
-                    clearInterval();
-                }
+        // Timer Variables
+        var totalSeconds = 0;
+        var secondsElapsed = 0;
+        var interval;
+        
+        // TIMER FUNCTIONS
+        function startTimer() {
+            setTimer();
+            if (totalSeconds > 0) {
+                interval = setInterval(function() { 
+                    secondsElapsed++;
+                    renderTimer();
+                    if (secondsElapsed >= totalSeconds) {
+                        clearInterval(interval);
+                    }
             }, 1000);
+            }
         }
+        
+        function setTimer() {
+            totalSeconds = 2 * 60;
+        };
 
-        startBtn.addEventListener("click", function() {
-            var twoMinutes = 60 * 1;
-                display = timerEl;
-            startTimer(twoMinutes, display);
-            timerEl.innerHTML = display;
+        function formatMinutes() {
+            var secondsLeft = totalSeconds - secondsElapsed;
+            var minutesLeft = Math.floor(secondsLeft / 60);
+            var formattedMinutes;
+            if (minutesLeft < 10) {
+                formattedMinutes = "0" + minutesLeft;
+            } else {
+                formattedMinutes = minutesLeft;
+            }
+            return formattedMinutes;
+        };
+
+        function formatSeconds() {
+            var secondsLeft = (totalSeconds - secondsElapsed) % 60;
+            var formattedSeconds;
+            if (secondsLeft < 10) {
+                formattedSeconds = "0" + secondsLeft;
+            } else {
+                formattedSeconds = secondsLeft;
+            }
+            return formattedSeconds;
+        };
+        
+        function renderTimer() {
+            timerEl.innerHTML = "Timer: " + formatMinutes() + ":" + formatSeconds();
+        };
+
+        // CORRECT/WRONG FUNCTIONS
+        function isCorrect() {
+            footer.innerHTML = "Correct!";
+        };
+
+        function isWrong() {
+            footer.innerHTML = "Wrong!"
+        };
+
+        // BUTTON FUNCTIONS
+        startBtn.addEventListener("click", function(){
+            countFrom = 60;
+            startTimer();
+            timerEl.innerHTML = renderTimer();
             startcardEl.style.display = "none";
             quizcardEl.style.display = "block";
+        });
+
+        q1nextBtnEl.addEventListener("click", function() {
+            quizcardEl.style.display = "none";
+            qTwoEl.style.display = "block";
+        });
+
+        q2nextBtnEl.addEventListener("click", function() {
+            qTwoEl.style.display = "none";
+            qThreeEl.style.display = "block";
+        });
+
+        q3nextBtnEl.addEventListener("click", function() {
+            qThreeEl.style.display = "none";
+            qFourEl.style.display = "block";
+        });
+
+        q4nextBtnEl.addEventListener("click", function() {
+            qFourEl.style.display = "none";
+            qFiveEl.style.display = "block";
+        });
+
+        q5nextBtnEl.addEventListener("click", function() {
+            qFiveEl.style.display = "none";
+            qBonusEl.style.display = "block";
+        });
+
+        q6nextBtnEl.addEventListener("click", function() {
+            qBonusEl.style.display = "none";
         });
 
 
