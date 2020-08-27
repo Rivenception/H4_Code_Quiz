@@ -16,8 +16,8 @@
     <!-- Navbar Image and text -->
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="./assets/images/fa-podium-trans.png" width="55" height="30"
-                class="d-inline-block align-top" alt="" loading="lazy">
+            <img src="./assets/images/fa-podium-trans.png" width="55" height="30" class="d-inline-block align-top"
+                alt="" loading="lazy">
             View High Scores
         </a>
         <span class="navbar-text" id="timeleft">
@@ -40,7 +40,7 @@
             </blockquote>
         </div>
     </div>
-    
+
     <!--Quuestion 1-->
     <div class="card col-md-6 offset-md-3 hidden" id="quizcard">
         <div class="card-header">
@@ -154,7 +154,8 @@
                     <br>
                     <button type="button" class="btn btn-secondary" id="A22">document.querySelector(element)</button>
                     <br>
-                    <button type="button" class="btn btn-secondary" id="A23">document.getElementsByClassName(element)</button>
+                    <button type="button" class="btn btn-secondary"
+                        id="A23">document.getElementsByClassName(element)</button>
                     <br>
                     <button type="button" class="btn btn-secondary" id="A24">document.querySelector(#element)</button>
                 </div>
@@ -191,8 +192,29 @@
         </div>
     </div>
 
+    <!--Final Score Entry-->
+    <div class="card col-md-6 offset-md-3" id="finalscore">
+        <div class="card-header" id="finalgrade">
+            Final Score:
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <br>
+                <div class="input-group mb-3">Enter Name Here:&nbsp
+                    <input type="text" class="form-control" placeholder="John Doe" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2">
+                </div>
+                <br>
+                <hr>
+                <footer class="blockquote-footer"><span class="graded">Great Work!</span>
+                    <button type="button" class="btn btn-secondary float-right" id="A30">Submit Scores</button>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
 
-        <script>
+
+    <script>
 
         // closing thoughts.  Can we do a forEach loop for class and determine if the card in NOT hidden. Can you get an element by id of only non-hidden elements?
 
@@ -210,12 +232,12 @@
 
         // NEXT QUIZ CARD BUTTONS
         var q1nextBtnEl = document.getElementById("A5");
-        var q2nextBtnEl = document.getElementById("A10"); 
-        var q3nextBtnEl = document.getElementById("A15"); 
-        var q4nextBtnEl = document.getElementById("A20"); 
+        var q2nextBtnEl = document.getElementById("A10");
+        var q3nextBtnEl = document.getElementById("A15");
+        var q4nextBtnEl = document.getElementById("A20");
         var q5nextBtnEl = document.getElementById("A25");
         var q6nextBtnEl = document.getElementById("A30");
-        
+
         // ANSWER BUTTONS
         document.getElementById("A1").addEventListener("click", isWrong);
         document.getElementById("A2").addEventListener("click", isCorrect);
@@ -241,31 +263,32 @@
         document.getElementById("A27").addEventListener("click", isWrong);
         document.getElementById("A28").addEventListener("click", isWrong);
         document.getElementById("A29").addEventListener("click", isWrong);
-        
+        document.getElementById("A30").addEventListener("click", finalScore);
+
         // CORRECT or INCORRECT VALIDATION
         var ifCorrect = 0;
         var ifWrong = 0;
-        var footer = document.getElementsByClassName("graded");
+        var footer = document.querySelectorAll(".graded");
 
         // Timer Variables
         var totalSeconds = 0;
         var secondsElapsed = 0;
         var interval;
-        
+
         // TIMER FUNCTIONS
         function startTimer() {
             setTimer();
             if (totalSeconds > 0) {
-                interval = setInterval(function() { 
+                interval = setInterval(function () {
                     secondsElapsed++;
                     renderTimer();
                     if (secondsElapsed >= totalSeconds) {
                         clearInterval(interval);
                     }
-            }, 1000);
+                }, 1000);
             }
         }
-        
+
         function setTimer() {
             totalSeconds = 2 * 60;
         };
@@ -292,7 +315,7 @@
             }
             return formattedSeconds;
         };
-        
+
         function renderTimer() {
             timerEl.innerHTML = "Timer: " + formatMinutes() + ":" + formatSeconds();
         };
@@ -300,14 +323,29 @@
         // CORRECT/WRONG FUNCTIONS
         function isCorrect() {
             footer.innerHTML = "Correct!";
+            ifCorrect++;
+            footer.forEach(element => {
+                footer.textContent = "Correct!";
+            });
         };
 
         function isWrong() {
-            footer.innerHTML = "Wrong!"
+            footer.innerHTML = "Wrong!";
+            ifWrong++;
+            footer.forEach(element => {
+                footer.textContent = "Wrong!";
+            });
         };
 
+        function finalScore() {
+            var totalPoints = ifCorrect + ifWrong;
+            var grade = (ifCorrect / totalPoints) * 100;
+            document.getElementById("finalgrade").textContent = "Final Score: " + grade;
+            return grade;
+        }
+
         // BUTTON FUNCTIONS
-        startBtn.addEventListener("click", function(){
+        startBtn.addEventListener("click", function () {
             countFrom = 60;
             startTimer();
             timerEl.innerHTML = renderTimer();
@@ -315,47 +353,47 @@
             quizcardEl.style.display = "block";
         });
 
-        q1nextBtnEl.addEventListener("click", function() {
+        q1nextBtnEl.addEventListener("click", function () {
             quizcardEl.style.display = "none";
             qTwoEl.style.display = "block";
         });
 
-        q2nextBtnEl.addEventListener("click", function() {
+        q2nextBtnEl.addEventListener("click", function () {
             qTwoEl.style.display = "none";
             qThreeEl.style.display = "block";
         });
 
-        q3nextBtnEl.addEventListener("click", function() {
+        q3nextBtnEl.addEventListener("click", function () {
             qThreeEl.style.display = "none";
             qFourEl.style.display = "block";
         });
 
-        q4nextBtnEl.addEventListener("click", function() {
+        q4nextBtnEl.addEventListener("click", function () {
             qFourEl.style.display = "none";
             qFiveEl.style.display = "block";
         });
 
-        q5nextBtnEl.addEventListener("click", function() {
+        q5nextBtnEl.addEventListener("click", function () {
             qFiveEl.style.display = "none";
             qBonusEl.style.display = "block";
         });
 
-        q6nextBtnEl.addEventListener("click", function() {
+        q6nextBtnEl.addEventListener("click", function () {
             qBonusEl.style.display = "none";
         });
 
 
-        </script>
+    </script>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
